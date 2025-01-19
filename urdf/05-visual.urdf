@@ -1,17 +1,21 @@
 <?xml version="1.0"?>
+<!-- Robot: "visual" -->
 <robot name="visual">
-
+<!-- Material: "blue" -->
 <material name="blue">
     <color rgba="0 0 0.8 1"/>
   </material>
+  <!-- Material: "black" -->
   <material name="black">
     <color rgba="0 0 0 1"/>
   </material>
+  <!-- Material: "white" -->
   <material name="white">
     <color rgba="1 1 1 1"/>
   </material>
-
+  <!-- Link: "base_link" -->
   <link name="base_link">
+    <!-- Visual: Cylinder -->
     <visual>
       <geometry>
         <cylinder length="0.6" radius="0.2"/>
@@ -19,8 +23,9 @@
       <material name="blue"/>
     </visual>
   </link>
-
+  <!-- Link: "right_leg" -->
   <link name="right_leg">
+    <!-- Visual: Box -->
     <visual>
       <geometry>
         <box size="0.6 0.1 0.2"/>
@@ -29,14 +34,15 @@
       <material name="white"/>
     </visual>
   </link>
-
+  <!-- Joint: "base_to_right_leg" -->
   <joint name="base_to_right_leg" type="fixed">
     <parent link="base_link"/>
     <child link="right_leg"/>
     <origin xyz="0 -0.22 0.25"/>
   </joint>
-
+  <!-- Link: "right_base" -->
   <link name="right_base">
+    <!-- Visual: Box -->
     <visual>
       <geometry>
         <box size="0.4 0.1 0.1"/>
@@ -44,14 +50,15 @@
       <material name="white"/>
     </visual>
   </link>
-
+  <!-- Joint: "right_base_joint" -->
   <joint name="right_base_joint" type="fixed">
     <parent link="right_leg"/>
     <child link="right_base"/>
     <origin xyz="0 0 -0.6"/>
   </joint>
-
+  <!-- Link: "right_front_wheel" -->
   <link name="right_front_wheel">
+    <!-- Visual: Cylinder -->
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
@@ -60,13 +67,15 @@
       <material name="black"/>
     </visual>
   </link>
+  <!-- Joint: "right_front_wheel_joint" -->
   <joint name="right_front_wheel_joint" type="fixed">
     <parent link="right_base"/>
     <child link="right_front_wheel"/>
     <origin rpy="0 0 0" xyz="0.133333333333 0 -0.085"/>
   </joint>
-
+  <!-- Link: "right_back_wheel" -->
   <link name="right_back_wheel">
+    <!-- Visual: Cylinder -->
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
@@ -75,13 +84,15 @@
       <material name="black"/>
     </visual>
   </link>
+  <!-- Joint: "right_back_wheel_joint" -->
   <joint name="right_back_wheel_joint" type="fixed">
     <parent link="right_base"/>
     <child link="right_back_wheel"/>
     <origin rpy="0 0 0" xyz="-0.133333333333 0 -0.085"/>
   </joint>
-
+  <!-- Link: "left_leg" -->
   <link name="left_leg">
+    <!-- Visual: Box -->
     <visual>
       <geometry>
         <box size="0.6 0.1 0.2"/>
@@ -90,14 +101,15 @@
       <material name="white"/>
     </visual>
   </link>
-
+  <!-- Joint: "base_to_left_leg" -->
   <joint name="base_to_left_leg" type="fixed">
     <parent link="base_link"/>
     <child link="left_leg"/>
     <origin xyz="0 0.22 0.25"/>
   </joint>
-
+  <!-- Link: "left_base" -->
   <link name="left_base">
+    <!-- Visual: Box -->
     <visual>
       <geometry>
         <box size="0.4 0.1 0.1"/>
@@ -105,14 +117,15 @@
       <material name="white"/>
     </visual>
   </link>
-
+  <!-- Joint: "left_base_joint" -->
   <joint name="left_base_joint" type="fixed">
     <parent link="left_leg"/>
     <child link="left_base"/>
     <origin xyz="0 0 -0.6"/>
   </joint>
-
+  <!-- Link: "left_front_wheel" -->
   <link name="left_front_wheel">
+    <!-- Visual: Cylinder -->
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
@@ -121,13 +134,15 @@
       <material name="black"/>
     </visual>
   </link>
+  <!-- Joint: "left_front_wheel_joint" -->
   <joint name="left_front_wheel_joint" type="fixed">
     <parent link="left_base"/>
     <child link="left_front_wheel"/>
     <origin rpy="0 0 0" xyz="0.133333333333 0 -0.085"/>
   </joint>
-
+  <!-- Link: "left_back_wheel" -->
   <link name="left_back_wheel">
+    <!-- Visual: Cylinder -->
     <visual>
       <origin rpy="1.57075 0 0" xyz="0 0 0"/>
       <geometry>
@@ -136,19 +151,21 @@
       <material name="black"/>
     </visual>
   </link>
+  <!-- Joint: "left_back_wheel_joint" -->
   <joint name="left_back_wheel_joint" type="fixed">
     <parent link="left_base"/>
     <child link="left_back_wheel"/>
     <origin rpy="0 0 0" xyz="-0.133333333333 0 -0.085"/>
   </joint>
-
+  <!-- Join: "gripper_extension" -->
   <joint name="gripper_extension" type="fixed">
     <parent link="base_link"/>
     <child link="gripper_pole"/>
     <origin rpy="0 0 0" xyz="0.19 0 0.2"/>
   </joint>
-
+  <!-- Link: "gripper_pole" -->
   <link name="gripper_pole">
+    <!-- Visual: Cylinder -->
     <visual>
       <geometry>
         <cylinder length="0.2" radius="0.01"/>
@@ -156,65 +173,72 @@
       <origin rpy="0 1.57075 0 " xyz="0.1 0 0"/>
     </visual>
   </link>
-
+  <!-- Link: "left_gripper" -->
   <joint name="left_gripper_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.2 0.01 0"/>
     <parent link="gripper_pole"/>
     <child link="left_gripper"/>
   </joint>
-
+  <!-- Link: "left_gripper" -->
   <link name="left_gripper">
+    <!-- Visual: Mesh -->
     <visual>
       <origin rpy="0.0 0 0" xyz="0 0 0"/>
       <geometry>
+        <!-- Mesh: "l_finger" -->
         <mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
       </geometry>
     </visual>
   </link>
-
+  <!-- Joint: "left_tip_joint" -->
   <joint name="left_tip_joint" type="fixed">
     <parent link="left_gripper"/>
     <child link="left_tip"/>
   </joint>
-
+  <!-- Link: "left_tip" -->
   <link name="left_tip">
     <visual>
       <origin rpy="0.0 0 0" xyz="0.09137 0.00495 0"/>
       <geometry>
+        <!-- Mesh: "l_finger_tip" -->
         <mesh filename="package://urdf_tutorial/meshes/l_finger_tip.dae"/>
       </geometry>
     </visual>
   </link>
+  <!-- Joint: "right_gripper_joint" -->
   <joint name="right_gripper_joint" type="fixed">
     <origin rpy="0 0 0" xyz="0.2 -0.01 0"/>
     <parent link="gripper_pole"/>
     <child link="right_gripper"/>
   </joint>
-
+  <!-- Link: "right_gripper" -->
   <link name="right_gripper">
     <visual>
       <origin rpy="-3.1415 0 0" xyz="0 0 0"/>
       <geometry>
+        <!-- Mesh: "l_finger" -->
         <mesh filename="package://urdf_tutorial/meshes/l_finger.dae"/>
       </geometry>
     </visual>
   </link>
-
+  <!-- Joint: "right_tip_joint" -->
   <joint name="right_tip_joint" type="fixed">
     <parent link="right_gripper"/>
     <child link="right_tip"/>
   </joint>
-
+  <!-- Link: "right_tip" -->
   <link name="right_tip">
     <visual>
       <origin rpy="-3.1415 0 0" xyz="0.09137 0.00495 0"/>
       <geometry>
+        <!-- Mesh: "l_finger_tip" -->
         <mesh filename="package://urdf_tutorial/meshes/l_finger_tip.dae"/>
       </geometry>
     </visual>
   </link>
-
+  <!-- Link: "head" -->
   <link name="head">
+    <!-- Visual: Sphere -->
     <visual>
       <geometry>
         <sphere radius="0.2"/>
@@ -222,12 +246,13 @@
       <material name="white"/>
     </visual>
   </link>
+  <!-- Joint: "head_swivel" -->
   <joint name="head_swivel" type="fixed">
     <parent link="base_link"/>
     <child link="head"/>
     <origin xyz="0 0 0.3"/>
   </joint>
-
+  <!-- Link: "box" -->
   <link name="box">
     <visual>
       <geometry>
@@ -236,7 +261,7 @@
       <material name="blue"/>
     </visual>
   </link>
-
+  <!-- Joint: "tobox" -->
   <joint name="tobox" type="fixed">
     <parent link="head"/>
     <child link="box"/>
