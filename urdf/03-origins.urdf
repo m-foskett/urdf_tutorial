@@ -1,25 +1,33 @@
 <?xml version="1.0"?>
-<robot name="origins">
+<!-- Robot: "multipleshapes" -->
+<robot name="multipleshapes">
+  <!-- Link: "base_link" -->
   <link name="base_link">
+    <!-- Visual: Cylinder(l=0.6, r=0.2) -->
     <visual>
       <geometry>
         <cylinder length="0.6" radius="0.2"/>
       </geometry>
     </visual>
   </link>
-
+  <!-- Link: "right_leg" -->
   <link name="right_leg">
+    <!-- Visual: Box(0.6, 0.1, 0.2) -->
     <visual>
       <geometry>
         <box size="0.6 0.1 0.2"/>
       </geometry>
+      <!-- Origin -->
       <origin rpy="0 1.57075 0" xyz="0 0 -0.3"/>
     </visual>
   </link>
-
+  <!-- Joint: "base_to_right_leg" -->
+  <!-- Fixed joint connecting "base_link" and "right_leg" -->
   <joint name="base_to_right_leg" type="fixed">
     <parent link="base_link"/>
     <child link="right_leg"/>
+    <!-- Origin -->
+    <!-- Described in terms of the parent's reference frame -->
     <origin xyz="0 -0.22 0.25"/>
   </joint>
 
