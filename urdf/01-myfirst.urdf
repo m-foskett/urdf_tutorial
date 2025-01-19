@@ -1,6 +1,9 @@
 <?xml version="1.0"?>
+<!-- Robot: "myfirst" -->
 <robot name="myfirst">
+  <!-- Link: "base_link" -->
   <link name="base_link">
+    <!-- Visual: Cylinder(l=0.6, r=0.2) -->
     <visual>
       <geometry>
         <cylinder length="0.6" radius="0.2"/>
